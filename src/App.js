@@ -49,16 +49,20 @@ function App() {
         onChange={(event)=> setNewAge(event.target.value)}
       />
       <button onClick={createUser}>Create User</button>
+      <table className="table">
       {users.map((user) => {
         return (
-          <div>
-            <div>{user.name}</div>
-            <div>{user.age}</div>
-            <button onClick={() => {updateUser(user.id, user.age)}}>Increase Age</button>
-            <button onClick={() => {deleteUser(user.id)}}>Delete User</button>
-          </div>
+          <tr>
+            <td>{user.name}</td>
+            <td>{user.age}</td>
+            <td>
+              <button onClick={() => {updateUser(user.id, user.age)}}>Increase Age</button>
+              <button onClick={() => {deleteUser(user.id)}}>Delete User</button>
+            </td>
+          </tr>
         )
       })}
+      </table>
     </div>
   );
 }
